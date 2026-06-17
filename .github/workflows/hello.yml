@@ -9,7 +9,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Say Hello
-              run: pring "Hello from GitHub Actions!"
+              run: echo "Hello from GitHub Actions!"
 
             - name: Print Current date
               run: echo $(date)
