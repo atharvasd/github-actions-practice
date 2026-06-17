@@ -10,3 +10,15 @@ jobs:
 
             - name: Say Hello
               run: echo "Hello from GitHub Actions!"
+
+            - name: Print Current date
+              run: echo $(date)
+
+            - name: Print baranch date
+              run: echo ${{github.ref_name}}
+
+            - name: List the files
+              run: ls -a
+
+            - name: Print runners OS info
+              run: uname -a
