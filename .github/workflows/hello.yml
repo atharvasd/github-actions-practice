@@ -1,24 +1,24 @@
 name: My First Workflow
 on: workflow_dispatch
 jobs:
-  greet:
-    runs-on: ubuntu-latest
+    greet:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4
 
-      - name: Say Hello
-        run: echo "Hello from GitHub Actions!"
+            - name: Say Hello
+              run: echo "Hello from GitHub Actions!"
 
-      - name: Print Current date
-        run: echo $(date)
+            - name: Print Current date
+              run: echo $(date)
 
-      - name: Print branch name
-        run: echo ${{github.ref_name}}
+            - name: Print baranch date
+              run: echo ${{github.ref_name}}
 
-      - name: List the files
-        run: ls -a
+            - name: List the files
+              run: ls -a
 
-      - name: Print runners OS info
-        run: uname -a
+            - name: Print runners OS info
+              run: uname -a
