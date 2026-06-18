@@ -1,0 +1,19 @@
+name: Manual Trigger
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Env to deploy"
+                required: true
+                default: "staging"
+                type: choice
+                options:
+                    - staging
+                    - production
+jobs:
+    manual_job:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Print the input
+              run: echo "Deployong to ${{github.event.inputs.environment}} env"
