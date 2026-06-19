@@ -1,0 +1,37 @@
+name: Git Hosted Trigger
+on: push
+jobs:
+    ubuntu_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print OS name
+              run: cat /etc/os-release
+
+            - name: Print hostname
+              run: hostname
+
+            - name: Print current user running job
+              run: whoami
+
+    wndows_job:
+        runs-on: windows-latest
+        steps:
+            - name: Print OS name
+              run: systeminfo | findstr /B /C:"OS Name"
+
+            - name: Print hostname
+              run: hostname
+
+            - name: Print current user running job
+              run: whoami
+
+    mac_job:
+        runs-on: macos-latest
+        steps:
+            - name: Print OS name
+              run: sw_vers
+            - name: Print hostname
+              run: hostname
+
+            - name: Print current user running job
+              run: whoami
