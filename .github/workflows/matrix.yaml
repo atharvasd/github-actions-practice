@@ -22,3 +22,6 @@ jobs:
 
             - name: Print python version
               run: python --version
+                  if["${{matrix.python-version}}" == "3.11"]; then
+                  exit 1;
+                  fi
