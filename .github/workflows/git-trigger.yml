@@ -13,7 +13,14 @@ jobs:
             - name: Print current user running job
               run: whoami
 
-    wndows_job:
+            - name: Check pre-installed tools
+              run: |
+                  docker --version
+                  python --version
+                  node --version
+                  git --version
+
+    windows_job:
         runs-on: windows-latest
         steps:
             - name: Print OS name
