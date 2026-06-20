@@ -1,0 +1,29 @@
+name: GCP Auth Test
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+permissions:
+    contents: "read"
+    id-token: "write"
+
+jobs:
+    auth-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
+            - name: Authenticate to GCP (WIF)
+              id: auth
+              uses: google-github-actions/auth@v2
+              with:
+                  workload_identity_provider: "projects/422876046186/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider"
+                  service_account: "github-actions-sa@terraform2-demoqr8.iam.gserviceaccount.com"
+            - name: Set up Cloud SDK
+              uses: google-github-actions/setup-gcloud@v2
+            - name: Test Authentication
+              run: gcloud projects describe terraform2-demoqr8
